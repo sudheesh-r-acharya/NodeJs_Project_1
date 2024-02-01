@@ -1,0 +1,21 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+<div class="container p-5 mt-5 m-auto  m-5 bg-info text-center rounded ">
+    <h1 class="align-middle p-5" >Welcome to User Profile</h1>
+    <h3>List of All Users</h3>
+    <ul class="list-group w-25 list-unstyled " >
+        <% users.forEach((user) => { %>
+            <li><%= user.username %>
+            <span>
+                <a class="text-decoration-none " href="/update/<%= user._id %>">✏️</a>
+                <!-- <a class="text-decoration-none  " href="/update">✏️</a> -->
+                <a class="text-decoration-none" href="/delete/<%= user._id %>">❌</a>
+                
+                <a class="text-decoration-none" href="/reset/<%= user._id %>">🔐</a>
+            </span> 
+        </li>
+        <% }) %>
+    </ul>
+    <a class="text-decoration-none bg-light p-1 " href="/signup">Add New Member</a>
+</div>
+<%- include("partials/footer") %>
